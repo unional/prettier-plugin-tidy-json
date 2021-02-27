@@ -35,6 +35,17 @@ export const printers = {
     print(path: any, _options: any, _print: (path: any) => any) {
       console.log('print called')
       const node = path.getValue()
+      // console.log(path, node)
+      return node.value
+    },
+    embed() {
+      console.log('embed called')
+    }
+  },
+  "json-stringify": {
+    print(path: any, _options: any, _print: (path: any) => any) {
+      console.log('print called')
+      const node = path.getValue()
       console.log(path, node)
       return node.value
     },
