@@ -5,11 +5,13 @@
   "license": "MIT",
   "author": "unional <homawong@gmail.com>",
   "sideEffects": false,
+  "main": "cjs",
   "module": "esm",
   "typings": "esm",
   "scripts": {
-    "build": "yarn build:esm",
-    "build:esm": "tsc -p tsconfig.esm.json",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json -i",
+    "build:esm": "tsc -p tsconfig.esm.json -i",
     "build:watch": "tsc --watch",
     "clean": "rimraf .nyc_output .ts coverage cjs esm",
     "coverage": "jest --coverage --maxWorkers=60%",
@@ -26,6 +28,9 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "peerDependencies": {
+    "prettier": "^2.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
@@ -35,6 +40,7 @@
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
     "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.31",
     "babel-jest": "^26.6.3",
     "commitlint-circle": "^1.0.0",
     "eslint": "^7.20.0",
@@ -47,7 +53,9 @@
     "jest-watch-toggle-config": "^2.0.1",
     "jest-watch-typeahead": "^0.6.1",
     "npm-check-updates": "^11.1.9",
+    "prettier": "^2.2.1",
     "semantic-release": "^17.4.0",
+    "tsc-silent": "^1.2.1",
     "typescript": "^4.2.2"
   },
   "dependencies": {

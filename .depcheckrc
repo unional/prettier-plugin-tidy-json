@@ -1,6 +1,7 @@
 ignores:
   - "@commitlint/*"
   - "@types/jest"
+  - '@types/node'
   - "babel-jest"
   - "commitlint-circle"
   - "jest-junit"

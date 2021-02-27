@@ -3,10 +3,10 @@ module.exports = {
     '<rootDir>/ts/**/*.[jt]s',
     '!<rootDir>/ts/bin.[jt]s',
   ],
+  setupFilesAfterEnv: ['./.jest/setup.js'],
   'reporters': [
     'default',
-    'jest-progress-tracker',
-    // ['jest-audio-reporter', { volume: 0.3 }],
+    'jest-progress-tracker'
   ],
   'roots': [
     '<rootDir>/ts',
