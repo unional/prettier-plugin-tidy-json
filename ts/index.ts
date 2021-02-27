@@ -4,6 +4,7 @@ const parser = (
   requireSafe('prettier/parser-babel') || requireSafe('prettier/parser-babylon')
 ).parsers['json-stringify']
 
+console.log(`'${parser.astFormat}'`)
 export const parsers = {
   'json': {
     ...parser,
@@ -23,7 +24,7 @@ export const parsers = {
     // }
     parse(text: string, parsers: any, options: any) {
       const result = parser.parse(text, parsers, options)
-      // console.info(text, result)
+      console.info(text, result)
       return result
     }
   },
@@ -31,23 +32,12 @@ export const parsers = {
 
 // TODO: figure out why printers are not being called
 export const printers = {
-  "json": {
-    print(path: any, _options: any, _print: (path: any) => any) {
+  "estree-json": {
+    print(_path: any, _options: any, _print: (path: any) => any) {
       console.log('print called')
-      const node = path.getValue()
+      // const node = path.getValue()
       // console.log(path, node)
-      return node.value
-    },
-    embed() {
-      console.log('embed called')
-    }
-  },
-  "json-stringify": {
-    print(path: any, _options: any, _print: (path: any) => any) {
-      console.log('print called')
-      const node = path.getValue()
-      console.log(path, node)
-      return node.value
+      return ''
     },
     embed() {
       console.log('embed called')
